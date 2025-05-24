@@ -23,9 +23,9 @@ const StateComponent = ({pokemon,pokemonSpecies}) => {
           </div>
           <div>
           {activeTab === 'baseState' ?(
-            <li onClick={() => setActiveTab('baseState')} className='font-semibold cursor-pointer border-b-2 text-sm  md:text-lg'>Base State</li>
+            <li onClick={() => setActiveTab('baseState')} className='font-semibold cursor-pointer border-b-2 text-sm  md:text-lg'>States</li>
           ): (
-            <li onClick={() => setActiveTab('baseState')} className='font-semibold cursor-pointer hover:border-b-2 text-sm  md:text-lg'>Base State</li>
+            <li onClick={() => setActiveTab('baseState')} className='font-semibold cursor-pointer hover:border-b-2 text-sm  md:text-lg'>States</li>
           )}
           </div>
           <div>

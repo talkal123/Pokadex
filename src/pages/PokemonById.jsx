@@ -108,7 +108,7 @@ const PokemonById = () => {
   const backgroundColor = typeColors[pokemon.types[0].type.name.toLowerCase()] || "#fff";
 
   return (
-    <div className="p-10">
+    <div className="p-5">
       <div
         className="rounded-lg p-10 max-w-[1100px] mx-auto flex flex-col"
         style={{
