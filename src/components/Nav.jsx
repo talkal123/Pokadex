@@ -17,44 +17,48 @@ import {
 import CardLiked from "./CardLiked";
 
 const Nav = ({ likedPokemons, dataAll }) => {
-   const [search, setSearch] = useState("");
-   const [isDisplay, setIsDisplay] = useState(false);
+  const [search, setSearch] = useState("");
+  const [isDisplay, setIsDisplay] = useState(false);
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
 
-  
-    const handleChange = (e) => {
-      setIsDisplay((prevState) => !prevState);
-  
-      setSearch(e.target.value);
-    };
-  
+    if (value.trim() === "") {
+      setIsDisplay(false);
+    } else {
+      setIsDisplay(true);
+    }
+  };
 
   return (
     <div className="grid grid-cols-1 gap-5 md:flex justify-between p-5">
       <div className="flex flex-col gap-2">
         <div>
-          <Link to={"/"}><MdOutlineKeyboardBackspace className="w-7 h-7 cursor-pointer"/></Link>
+          <Link to={"/"}>
+            <MdOutlineKeyboardBackspace className="w-7 h-7 cursor-pointer" />
+          </Link>
         </div>
         <div className="font-bold text-3xl">Pokedex</div>
         <AlertDialog className=" ">
-            <AlertDialogTrigger asChild>
-              <CiHeart className="w-7 h-7 cursor-pointer" />
-            </AlertDialogTrigger>
-            <AlertDialogContent >
-              <AlertDialogHeader className="overflow-auto ">
-                <AlertDialogTitle>Your Liked Pokemons:</AlertDialogTitle>
-                <AlertDialogDescription>
-                  <div className="flex gap-5">
-                    <CardLiked likedPokemons={likedPokemons}/>
-                  </div>
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction>Continue</AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
+          <AlertDialogTrigger asChild>
+            <CiHeart className="w-7 h-7 cursor-pointer" />
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader className="overflow-auto ">
+              <AlertDialogTitle>Your Liked Pokemons:</AlertDialogTitle>
+              <AlertDialogDescription>
+                <div className="flex gap-5">
+                  <CardLiked likedPokemons={likedPokemons} />
+                </div>
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
       <div className="relative">
         <Input
@@ -107,5 +111,3 @@ const Nav = ({ likedPokemons, dataAll }) => {
 };
 
 export default Nav;
-
-
