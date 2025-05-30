@@ -37,6 +37,10 @@ const PokemonById = () => {
 
   };
 
+  const handleDelete = (name) => {
+    setLikedPokemons(likedPokemons.filter(p => p.name !== name))
+  }
+
   useEffect(() => {
     if (pokemon) {
       const isLiked = likedPokemons.some(p => p.name === pokemon.name);
@@ -118,7 +122,7 @@ const PokemonById = () => {
           backgroundPosition: "right",
         }}
       >
-        <Nav pokemon={pokemon} likedPokemons={likedPokemons} dataAll={dataAll}/>
+        <Nav pokemon={pokemon} likedPokemons={likedPokemons} handleDelete={handleDelete} dataAll={dataAll}/>
         <div className="mt-5">
           <div className="flex justify-between p-5">
             <div className="flex flex-col gap-3">
@@ -165,6 +169,7 @@ const PokemonById = () => {
               pokemonSpecies={pokemonSpecies}
               likeBtn={likeBtn}
               likedPokemons={likedPokemons}
+              handleDelete={handleDelete}
               isLike={isLike}
             />
           </div>

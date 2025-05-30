@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import CardLiked from "./CardLiked";
 
-const Nav = ({ likedPokemons, dataAll }) => {
+const Nav = ({ likedPokemons, dataAll,handleDelete }) => {
   const [search, setSearch] = useState("");
   const [isDisplay, setIsDisplay] = useState(false);
 
@@ -49,7 +49,7 @@ const Nav = ({ likedPokemons, dataAll }) => {
               <AlertDialogTitle>Your Liked Pokemons:</AlertDialogTitle>
               <AlertDialogDescription>
                 <div className="flex gap-5">
-                  <CardLiked likedPokemons={likedPokemons} />
+                  <CardLiked likedPokemons={likedPokemons} handleDelete={handleDelete}/>
                 </div>
               </AlertDialogDescription>
             </AlertDialogHeader>

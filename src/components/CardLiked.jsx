@@ -3,7 +3,7 @@ import pokeball from "../assets/pokeball.png"
 import typeColors from '@/helpers/pokemonTypes';
 
 
-const CardLiked = ({ likedPokemons }) => {
+const CardLiked = ({ likedPokemons,handleDelete }) => {
   if (!likedPokemons || likedPokemons.length === 0) {
     return <div>No Pokemons...</div>; 
   }
@@ -16,7 +16,7 @@ const CardLiked = ({ likedPokemons }) => {
         return (
           <Card
             key={pokemon.id} 
-            className="min-h-[400px] min-w-[300px] p-5 shadow-2xl"
+            className="min-h-[400px] min-w-[300px] p-5 shadow-2xl relative"
             style={{
               backgroundColor: backgroundColor,
               backgroundImage: `url(${pokeball})`,
@@ -41,6 +41,9 @@ const CardLiked = ({ likedPokemons }) => {
                 <img src={pokemon.image} className="" alt={pokemon.name} />
               </div>
             </div>
+            <div>
+            </div>
+            <button className='absolute top-0 right-0 text-black border rounded-full p-2 pl-2 bg-white' onClick={() => handleDelete(pokemon.name)}>X</button>
           </Card>
         );
       })}
