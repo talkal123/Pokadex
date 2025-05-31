@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import CardLiked from "./CardLiked";
 
-const Nav = ({ likedPokemons, dataAll,handleDelete }) => {
+const Nav = ({ likedPokemons, dataAll, handleDelete }) => {
   const [search, setSearch] = useState("");
   const [isDisplay, setIsDisplay] = useState(false);
 
@@ -40,16 +40,19 @@ const Nav = ({ likedPokemons, dataAll,handleDelete }) => {
           </Link>
         </div>
         <div className="font-bold text-3xl">Pokedex</div>
-        <AlertDialog className=" ">
+        <AlertDialog>
           <AlertDialogTrigger asChild>
             <CiHeart className="w-7 h-7 cursor-pointer" />
           </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader className="overflow-auto ">
+          <AlertDialogContent className="max-w-[90vw] max-h-[90vh] overflow-auto">
+            <AlertDialogHeader>
               <AlertDialogTitle>Your Liked Pokemons:</AlertDialogTitle>
               <AlertDialogDescription>
-                <div className="flex gap-5">
-                  <CardLiked likedPokemons={likedPokemons} handleDelete={handleDelete}/>
+                <div className="flex flex-wrap gap-5">
+                  <CardLiked
+                    likedPokemons={likedPokemons}
+                    handleDelete={handleDelete}
+                  />
                 </div>
               </AlertDialogDescription>
             </AlertDialogHeader>
@@ -60,25 +63,24 @@ const Nav = ({ likedPokemons, dataAll,handleDelete }) => {
           </AlertDialogContent>
         </AlertDialog>
       </div>
-      <div className="relative">
+
+      <div className="relative w-full">
         <Input
-          className="bg-white "
+          className="bg-white w-full"
           onChange={handleChange}
           value={search}
           placeholder="Search pokemon..."
         />
 
-        {isDisplay === true && (
-          <div className="bg-white z-20 absolute w-full rounded-lg mt-2 max-h-60 overflow-y-auto">
+        {isDisplay && (
+          <div className="bg-white z-50 absolute w-full rounded-lg mt-2 max-h-60 overflow-y-auto shadow-lg border border-gray-200">
             {dataAll
-              .filter((pokemon) => {
-                return search.toLowerCase() === ""
-                  ? pokemon
-                  : pokemon.name.toLowerCase().includes(search);
-              })
+              .filter((pokemon) =>
+                pokemon.name.toLowerCase().includes(search.toLowerCase())
+              )
               .map((pokemon) => (
                 <Link to={`/${pokemon.id}`} key={pokemon.id}>
-                  <div className="p-4 hover:bg-gray-100 cursor-pointer flex gap-4 rounded-lg shadow-md transition-all duration-200 ease-in-out">
+                  <div className="p-4 hover:bg-gray-100 cursor-pointer flex gap-4 rounded-lg transition-all duration-200 ease-in-out">
                     <div className="flex-shrink-0">
                       <img
                         src={pokemon.image}
@@ -97,7 +99,7 @@ const Nav = ({ likedPokemons, dataAll,handleDelete }) => {
                           {pokemon.type}
                         </div>
                       ) : (
-                        <p>No pokemon</p>
+                        <p>No type</p>
                       )}
                     </div>
                   </div>
