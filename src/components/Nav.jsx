@@ -32,7 +32,7 @@ const Nav = ({ likedPokemons, dataAll, handleDelete }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-5 md:flex justify-between p-5">
+    <div className="grid grid-cols-1 gap-5 md:flex justify-between ">
       <div className="flex flex-col gap-2">
         <div>
           <Link to={"/"}>
@@ -64,9 +64,9 @@ const Nav = ({ likedPokemons, dataAll, handleDelete }) => {
         </AlertDialog>
       </div>
 
-      <div className="relative  w-[1000px]">
+      <div className="relative w-full">
         <Input
-          className="bg-white"
+          className="bg-white "
           onChange={handleChange}
           value={search}
           placeholder="Search pokemon..."
