@@ -64,9 +64,9 @@ const Nav = ({ likedPokemons, dataAll, handleDelete }) => {
         </AlertDialog>
       </div>
 
-      <div className="relative w-full">
+      <div className="relative  w-[1000px]">
         <Input
-          className="bg-white w-full"
+          className="bg-white"
           onChange={handleChange}
           value={search}
           placeholder="Search pokemon..."
