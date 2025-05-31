@@ -169,7 +169,6 @@ const PokemonById = () => {
               pokemonSpecies={pokemonSpecies}
               likeBtn={likeBtn}
               likedPokemons={likedPokemons}
-              handleDelete={handleDelete}
               isLike={isLike}
             />
           </div>

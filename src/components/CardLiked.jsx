@@ -16,7 +16,7 @@ const CardLiked = ({ likedPokemons,handleDelete }) => {
         return (
           <Card
             key={pokemon.id} 
-            className="min-h-[400px] min-w-[300px] p-5 shadow-2xl relative"
+            className="min-h-[400px] w-full p-5 shadow-2xl relative"
             style={{
               backgroundColor: backgroundColor,
               backgroundImage: `url(${pokeball})`,
@@ -43,7 +43,7 @@ const CardLiked = ({ likedPokemons,handleDelete }) => {
             </div>
             <div>
             </div>
-            <button className='absolute top-0 right-0 text-black border rounded-full p-2 pl-2 bg-white' onClick={() => handleDelete(pokemon.name)}>X</button>
+            <button className='absolute top-0 right-0 text-black border rounded-full w-10 h-10 font-semibold bg-white' onClick={() => handleDelete(pokemon.name)}>X</button>
           </Card>
         );
       })}

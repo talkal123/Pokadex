@@ -44,11 +44,11 @@ const Nav = ({ likedPokemons, dataAll, handleDelete }) => {
           <AlertDialogTrigger asChild>
             <CiHeart className="w-7 h-7 cursor-pointer" />
           </AlertDialogTrigger>
-          <AlertDialogContent className="max-w-[90vw] max-h-[90vh] overflow-auto">
+          <AlertDialogContent className="max-w-[90vw] max-h-[90vh]">
             <AlertDialogHeader>
               <AlertDialogTitle>Your Liked Pokemons:</AlertDialogTitle>
               <AlertDialogDescription>
-                <div className="flex flex-wrap gap-5">
+                <div className="flex flex-wrap gap-5 w-full max-h-[65vh] overflow-scroll">
                   <CardLiked
                     likedPokemons={likedPokemons}
                     handleDelete={handleDelete}
